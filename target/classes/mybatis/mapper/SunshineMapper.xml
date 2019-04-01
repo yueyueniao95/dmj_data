@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.infinite.dmj_data.dao.SunshineMapper">
+
+	<resultMap id="sunshineMapper" type="com.infinite.dmj_data.entity.SunshineEntity">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="type" jdbcType="VARCHAR" property="type" />
+		<result column="channel" jdbcType="VARCHAR" property="channel" />
+		<result column="channel_call_num" jdbcType="INTEGER" property="channelCallNum" />
+		<result column="channel_ins_num" jdbcType="INTEGER" property="channelInsNum" />
+		<result column="channel_mth" jdbcType="VARCHAR" property="channelMth" />
+		<result column="channel_per_prem" jdbcType="VARCHAR" property="channelPerPrem" />
+		<result column="theme" jdbcType="VARCHAR" property="theme" />
+		<result column="dup_amt" jdbcType="INTEGER" property="dupAmt" />
+		<result column="dup_channel" jdbcType="VARCHAR" property="dupChannel" />
+		<result column="dup_issued" jdbcType="VARCHAR" property="dupIssued" />
+		<result column="dup_list_detail_name" jdbcType="VARCHAR" property="dupListDetailName" />
+		<result column="dup_mth" jdbcType="VARCHAR" property="dupMth" />
+		<result column="dup_sendtime" jdbcType="INTEGER" property="dupSendtime" />
+		<result column="mob_prov" jdbcType="VARCHAR" property="mobProv" />
+		<result column="prov_call_num" jdbcType="INTEGER" property="provCallNum" />
+		<result column="prov_insure_num" jdbcType="INTEGER" property="provInsureNum" />
+		<result column="prov_list" jdbcType="VARCHAR" property="provList" />
+		<result column="prov_per_prem" jdbcType="VARCHAR" property="provPerPrem" />
+		<result column="prov_sum_prem" jdbcType="VARCHAR" property="provSumPrem" />
+		<result column="total_call_num" jdbcType="INTEGER" property="totalCallNum" />
+		<result column="total_ins_num" jdbcType="INTEGER" property="totalInsNum" />
+		<result column="total_list" jdbcType="INTEGER" property="totalList" />
+		<result column="total_mth" jdbcType="VARCHAR" property="totalMth" />
+		<result column="total_per_prem" jdbcType="VARCHAR" property="totalPerPrem" />
+		<result column="total_sum_prem" jdbcType="VARCHAR" property="totalSumPrem" />
+		<result column="total_sup" jdbcType="VARCHAR" property="totalSup" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+	</resultMap>
+
+	<!-- 新增 -->
+	<insert id="insert">
+		insert into sun_data (type, channel, channel_call_num, channel_ins_num, channel_mth, channel_per_prem, theme, dup_amt, dup_channel, 
+		dup_issued, dup_list_detail_name, dup_mth, dup_sendtime, mob_prov, prov_call_num, prov_insure_num, prov_list, prov_per_prem, prov_sum_prem,
+		total_call_num, total_ins_num, total_list, total_mth, total_per_prem, total_sum_prem, total_sup, create_time, update_time)
+		values (#{type}, #{channel}, #{channelCallNum}, #{channelInsNum}, #{channelMth}, #{channelPerPrem}, #{theme}, #{dupAmt}, 
+		#{dupChannel}, #{dupIssued}, #{dupListDetailName}, #{dupMth}, #{dupSendtime}, #{mobProv}, #{provCallNum}, #{provInsureNum}, 
+		#{provList}, #{provPerPrem}, #{provSumPrem}, #{totalCallNum}, #{totalInsNum}, #{totalList}, #{totalMth}, #{totalPerPrem}, 
+		#{totalSumPrem}, #{totalSup}, now(), now())
+	</insert>
+	
+    <delete id="deleteAll">
+        DELETE FROM sun_data WHERE 1=1
+    </delete>
+	
+</mapper>
